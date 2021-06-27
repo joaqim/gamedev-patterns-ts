@@ -51,6 +51,17 @@ describe('>>> Entity', () => {
     expect(e.HasComponent(C3)).toBeTruthy()
   })
 
+  it('should be able to remove every component', () => {
+    e.AddComponent(c1)
+    e.AddComponent(c2)
+    e.AddComponent(c3)
+	
+    e.RemoveComponent(C1)
+    e.RemoveComponent(C2)
+    e.RemoveComponent(C3)
+    expect(e.Components.length).toBe(0)
+  })
+
   it('should throw error if component wasn\'t found', () => {
     expect(e.HasComponent(C1)).toBeFalsy()
     expect(() => e.GetComponent(C1)).toThrow()

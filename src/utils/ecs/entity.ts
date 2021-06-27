@@ -39,7 +39,7 @@ export abstract class Entity implements IAwake, IUpdate {
       }
     }
 
-    if (toRemove && index) {
+    if (toRemove && index !== undefined) {
       toRemove.Entity = null
       this._components.splice(index, 1)
     }
